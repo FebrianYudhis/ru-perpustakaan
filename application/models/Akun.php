@@ -9,7 +9,7 @@ class Akun extends CI_Model
         if($user){
             if($user['password']==$password){
                 $data = [
-                    'nama_petugas' => $user['nama_petugas'],
+                    'id_petugas' => $user['id_petugas'],
                     'login' => 'ya'
                 ];
                 $this->session->set_userdata($data);
