@@ -60,34 +60,34 @@
                         <div class="horizontal-menu">
                             <nav>
                                 <ul id="nav_menu">
-                                    <li>
+                                    <li <?php if($aktif=='Dashboard'){echo 'class="active"';}?>>
                                         <a href="javascript:void(0)"><i class="ti-dashboard"></i><span>Dashboard</span></a>
                                         <ul class="submenu">
                                             <li><a href="<?= base_url();?>">Menu Utama</a></li>
                                         </ul>
                                     </li>
-                                    <li>
+                                    <li <?php if($aktif=='Mahasiswa'){echo 'class="active"';}?>>
                                         <a href="javascript:void(0)"><i class="fa fa-user"></i>
-                                            <span>Data Siswa</span></a>
+                                            <span>Data Mahasiswa</span></a>
                                         <ul class="submenu">
-                                            <li><a href="">Lihat Data Siswa</a></li>
-                                            <li><a href="table-basic.html">Tambah Data Siswa</a></li>
+                                            <li><a href="<?= base_url();?>kelola/lihatmahasiswa">Lihat Data Mahasiswa</a></li>
+                                            <li><a href="<?= base_url();?>kelola/tambahmahasiswa">Tambah Data Mahasiswa</a></li>
                                         </ul>
                                     </li>
-                                    <li>
+                                    <li <?php if($aktif=='Buku'){echo 'class="active"';}?>>
                                         <a href="javascript:void(0)"><i class="fa fa-book"></i>
                                             <span>Data Buku</span></a>
                                         <ul class="submenu">
-                                            <li><a href="table-basic.html">Lihat Data Buku</a></li>
-                                            <li><a href="table-basic.html">Tambah Data Buku</a></li>
+                                            <li><a href="<?= base_url();?>kelola/lihatbuku">Lihat Data Buku</a></li>
+                                            <li><a href="<?= base_url();?>kelola/tambahbuku">Tambah Data Buku</a></li>
                                         </ul>
                                     </li>
-                                    <li>
+                                    <li <?php if($aktif=='Pinjam'){echo 'class="active"';}?>>
                                         <a href="javascript:void(0)"><i class="fa fa-envelope"></i>
                                             <span>Data Peminjaman</span></a>
                                         <ul class="submenu">
-                                            <li><a href="table-basic.html">Lihat Data Peminjaman</a></li>
-                                            <li><a href="table-basic.html">Tambah Data Peminjaman</a></li>
+                                            <li><a href="<?= base_url();?>kelola/lihatpinjam">Lihat Data Peminjaman</a></li>
+                                            <li><a href="<?= base_url();?>kelola/tambahpinjam">Tambah Data Peminjaman</a></li>
                                         </ul>
                                     </li>
                                 </ul>
