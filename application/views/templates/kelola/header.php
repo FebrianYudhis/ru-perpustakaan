@@ -74,6 +74,14 @@
                                             <li><a href="<?= base_url();?>kelola/tambahmahasiswa">Tambah Data Mahasiswa</a></li>
                                         </ul>
                                     </li>
+                                    <li <?php if($aktif=='Kategori'){echo 'class="active"';}?>>
+                                        <a href="javascript:void(0)"><i class="fa fa-bookmark"></i>
+                                            <span>Data Kategori</span></a>
+                                        <ul class="submenu">
+                                            <li><a href="<?= base_url();?>kelola/lihatkategori">Lihat Data Kategori</a></li>
+                                            <li><a href="<?= base_url();?>kelola/tambahkategori">Tambah Data Kategori</a></li>
+                                        </ul>
+                                    </li>
                                     <li <?php if($aktif=='Buku'){echo 'class="active"';}?>>
                                         <a href="javascript:void(0)"><i class="fa fa-book"></i>
                                             <span>Data Buku</span></a>
@@ -86,8 +94,8 @@
                                         <a href="javascript:void(0)"><i class="fa fa-envelope"></i>
                                             <span>Data Peminjaman</span></a>
                                         <ul class="submenu">
-                                            <li><a href="<?= base_url();?>kelola/lihatpinjam">Lihat Data Peminjaman</a></li>
-                                            <li><a href="<?= base_url();?>kelola/tambahpinjam">Tambah Data Peminjaman</a></li>
+                                            <li><a href="<?= base_url();?>kelola/lihatpeminjaman">Lihat Data Peminjaman</a></li>
+                                            <li><a href="<?= base_url();?>kelola/tambahpeminjaman">Tambah Data Peminjaman</a></li>
                                         </ul>
                                     </li>
                                 </ul>

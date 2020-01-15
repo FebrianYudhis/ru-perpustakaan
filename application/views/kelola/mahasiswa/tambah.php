@@ -49,7 +49,7 @@
                                 <input type="email" class="form-control" placeholder="Masukkan alamat email" name="email" value="<?= set_value('email');?>">
                                 <?= form_error('email','<small class="form-text text-danger">','</small>');?>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
                         </form>
                     </p>
                 </div>

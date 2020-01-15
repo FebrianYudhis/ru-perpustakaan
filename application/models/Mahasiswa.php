@@ -14,7 +14,7 @@ class Mahasiswa extends CI_Model{
         ];
         $this->db->insert('mahasiswa',$data);
         $this->session->set_flashdata('pesan','<div class="alert alert-success">Data Berhasil Ditambahkan</div>');
-        redirect(kelola);
+        redirect('kelola');
     }
 }
 ?>
