@@ -43,7 +43,13 @@
                         <div class="clearfix d-md-inline-block d-block">
                             <div class="user-profile m-0">
                                 <img class="avatar user-thumb" src="<?= base_url();?>assets/images/author/avatar.png" alt="avatar">
-                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Febrian Yudhistira <i class="fa fa-angle-down"></i></h4>
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown"> 
+                                    <?php
+                                        $this->db->where('id_petugas',$this->session->userdata('id_petugas'));
+                                        $petugas = $this->db->get('petugas')->row_array();
+                                        echo $petugas['nama_petugas'];
+                                    ?>
+                                <i class="fa fa-angle-down"></i></h4>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="<?= base_url();?>kelola/profil">Profile</a>
                                     <a class="dropdown-item" href="<?= base_url();?>login/keluar">Keluar</a>

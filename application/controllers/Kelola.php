@@ -21,6 +21,16 @@ class Kelola extends CI_Controller {
 		$this->load->view('kelola/utama');
 		$this->load->view('templates/kelola/footer');
 	}
+	
+	public function profil(){
+		$data['judul'] = 'Profil';
+		$data['aktif'] = 'Profil';
+		$this->db->where('id_petugas',$this->session->userdata('id_petugas'));
+		$data['profil'] = $this->db->get('petugas')->row_array();
+		$this->load->view('templates/kelola/header',$data);
+		$this->load->view('kelola/profil');
+		$this->load->view('templates/kelola/footer');	
+	}
 
 	public function tambahmahasiswa(){
 		$data['judul'] = 'Tambah Data Mahasiswa';

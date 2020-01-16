@@ -5,6 +5,7 @@ class Peminjaman extends CI_Model{
         $data = [
             'kode_buku' => $this->input->post('buku'),
             'nim' => $this->input->post('nim'),
+            'id_petugas' => $this->session->userdata('id_petugas'),
             'tgl_pinjam' => $this->input->post('pinjam'),
             'tgl_kembali' => $this->input->post('kembali')
         ];
