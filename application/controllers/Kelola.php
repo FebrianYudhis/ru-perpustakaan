@@ -25,7 +25,7 @@ class Kelola extends CI_Controller {
 	public function tambahmahasiswa(){
 		$data['judul'] = 'Tambah Data Mahasiswa';
 		$data['aktif'] = 'Mahasiswa';
-		$this->form_validation->set_rules('nim','nim','required|is_integer');
+		$this->form_validation->set_rules('nim','nim','required|integer');
 		$this->form_validation->set_rules('nama','nama','required');
 		$this->form_validation->set_rules('tempat','tempat','required');
 		$this->form_validation->set_rules('tanggal','tanggal','required');
@@ -39,6 +39,15 @@ class Kelola extends CI_Controller {
 		}else{
 			$this->Mahasiswa->tambah();
 		}
+	}
+
+	public function lihatmahasiswa(){
+		$data['judul'] = "Data Mahasiswa";
+		$data['aktif'] = 'Mahasiswa';
+		$data['mahasiswa'] = $this->db->get('mahasiswa');
+		$this->load->view('templates/kelola/header',$data);
+		$this->load->view('kelola/mahasiswa/lihat',$data);
+		$this->load->view('templates/kelola/footer');
 	}
 
 	public function tambahbuku(){

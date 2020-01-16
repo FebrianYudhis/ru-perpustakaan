@@ -30,8 +30,8 @@
                             <div class="form-group">
                                 <label for="jk">Jenis Kelamin :</label>
                                 <select class="form-control" name="jk">
-                                <option value="L">Laki-Laki</option>
-                                <option value="P">Perempuan</option>
+                                <option value="Laki-laki">Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
                                 </select>
                             </div>
                             <div class="form-group">
