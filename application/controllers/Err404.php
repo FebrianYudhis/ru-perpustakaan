@@ -12,8 +12,8 @@ class Err404 extends CI_Controller {
 	{
 		$data['judul'] = "Error 404";
         $this->output->set_status_header(404);
-		$this->load->view('templates/header',$data);
+		$this->load->view('templates/login/header',$data);
 		$this->load->view('Err404');
-		$this->load->view('templates/footer');
+		$this->load->view('templates/login/footer');
 	}
 }

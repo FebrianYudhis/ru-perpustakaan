@@ -16,5 +16,12 @@ class Mahasiswa extends CI_Model{
         $this->session->set_flashdata('pesan','<div class="alert alert-success">Data Berhasil Ditambahkan</div>');
         redirect('kelola');
     }
+
+    public function hapus($nim){
+        $this->db->where('nim',$nim);
+        $this->db->delete('mahasiswa');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success">Data Berhasil Dihapus</div>');
+        redirect('kelola');
+    }
 }
 ?>

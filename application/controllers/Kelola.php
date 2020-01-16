@@ -50,6 +50,10 @@ class Kelola extends CI_Controller {
 		$this->load->view('templates/kelola/footer');
 	}
 
+	public function hapusmahasiswa($nim){
+		$this->Mahasiswa->hapus($nim);
+	}
+
 	public function tambahbuku(){
 		$data['judul'] = 'Tambah Data Buku';
 		$data['aktif'] = 'Buku';
@@ -70,6 +74,19 @@ class Kelola extends CI_Controller {
 			$this->Buku->tambah();
 		}
 	}
+
+	public function lihatbuku(){
+		$data['judul'] = 'Data Buku';
+		$data['aktif'] = 'Buku';
+		$data['buku'] = $this->db->get('buku');
+		$this->load->view('templates/kelola/header',$data);
+		$this->load->view('kelola/buku/lihat',$data);
+		$this->load->view('templates/kelola/footer');
+	}
+
+	public function hapusbuku($kode){
+		$this->Buku->hapus($kode);
+	}
 	
 	public function tambahkategori(){
 		$data['judul'] = 'Tambah Data Kategori';
@@ -83,9 +100,22 @@ class Kelola extends CI_Controller {
 			$this->Kategori->tambah();
 		}
 	}
+
+	public function lihatkategori(){
+		$data['judul'] = 'Data Kategori';
+		$data['aktif'] = 'Kategori';
+		$data['kategori'] = $this->db->get('kategori');
+		$this->load->view('templates/kelola/header',$data);
+		$this->load->view('kelola/kategori/lihat',$data);
+		$this->load->view('templates/kelola/footer');
+	}
+
+	public function hapuskategori($id){
+		$this->Kategori->hapus($id);
+	}
 	
 	public function tambahpeminjaman(){
-		$data['judul'] = 'Tambah Data Kategori';
+		$data['judul'] = 'Tambah Data Peminjaman';
 		$data['aktif'] = 'Pinjam';
 		$data['buku'] = $this->db->get('buku');
 		$data['nim'] = $this->db->get('mahasiswa');
@@ -100,5 +130,18 @@ class Kelola extends CI_Controller {
 		}else{
 			$this->Peminjaman->tambah();
 		}
+	}
+
+	public function lihatpeminjaman(){
+		$data['judul'] = 'Data Peminjaman';
+		$data['aktif'] = 'Pinjam';
+		$data['pinjam'] = $this->db->get('pinjaman');
+		$this->load->view('templates/kelola/header',$data);
+		$this->load->view('kelola/peminjaman/lihat',$data);
+		$this->load->view('templates/kelola/footer');
+	}
+
+	public function hapuspeminjaman($id){
+		$this->Peminjaman->hapus($id);
 	}
 }

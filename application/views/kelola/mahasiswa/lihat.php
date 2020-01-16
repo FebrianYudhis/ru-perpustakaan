@@ -32,8 +32,8 @@
                         <td><?= $m['kontak'];?></td>
                         <td><?= $m['email'];?></td>
                         <td>
-                            <a href=""><i class="fa fa-pencil-square-o"></i></a>
-                            <a href=""><i class="fa fa-trash"></i></a>
+                            <a href="<?= base_url();?>kelola/editmahasiswa/<?= $m['nim'];?>"><i class="fa fa-pencil-square-o"></i></a>
+                            <a href="<?= base_url();?>kelola/hapusmahasiswa/<?= $m['nim'];?>"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                         <?php $no++; endforeach;?>

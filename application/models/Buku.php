@@ -16,4 +16,11 @@ class Buku extends CI_Model{
         $this->session->set_flashdata('pesan','<div class="alert alert-success">Data Berhasil Ditambahkan</div>');
         redirect('kelola');
     }
+
+    public function hapus($kode){
+        $this->db->where('kode_buku',$kode);
+        $this->db->delete('buku');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success">Data Berhasil Dihapus</div>');
+        redirect('kelola');
+    }
 }
