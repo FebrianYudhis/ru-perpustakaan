@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="<?= base_url();?>assets/css/styles.css">
     <link rel="stylesheet" href="<?= base_url();?>assets/css/responsive.css">
     <link rel="stylesheet" href="<?= base_url();?>assets/css/datatables.css">
+    <link rel="stylesheet" href="<?= base_url();?>assets/css/clock.css">
+    
     <!-- modernizr css -->
     <script src="<?= base_url();?>assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -35,7 +37,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-3">
                         <div class="logo">
-                            <a href="index.html"><img src="<?= base_url();?>assets/images/icon/logo2.png" alt="logo"></a>
+                            <a href="<?= base_url();?>"><img src="<?= base_url();?>assets/images/icon/logo.jpg" alt="logo"></a>
                         </div>
                     </div>
 

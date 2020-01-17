@@ -17,6 +17,10 @@ class Kelola extends CI_Controller {
 	{
 		$data['judul'] = 'Dashboard';
 		$data['aktif'] = 'Dashboard';
+		$data['mahasiswa'] = $this->db->count_all('mahasiswa');
+		$data['kategori'] = $this->db->count_all('kategori');
+		$data['buku'] = $this->db->count_all('buku');
+		$data['pinjaman'] = $this->db->count_all('pinjaman');
 		$this->load->view('templates/kelola/header',$data);
 		$this->load->view('kelola/utama');
 		$this->load->view('templates/kelola/footer');
@@ -182,11 +186,12 @@ class Kelola extends CI_Controller {
 		}
 	}
 	
-	public function tambahpeminjaman(){
+	public function tambahpeminjaman($id){
 		$data['judul'] = 'Tambah Data Peminjaman';
 		$data['aktif'] = 'Pinjam';
 		$data['buku'] = $this->db->get('buku');
 		$data['nim'] = $this->db->get('mahasiswa');
+		$data['pilih'] = $id;
 		$this->form_validation->set_rules('buku','buku','required');
 		$this->form_validation->set_rules('nim','nim','required');
 		$this->form_validation->set_rules('pinjam','pinjam','required');

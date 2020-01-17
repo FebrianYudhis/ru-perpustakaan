@@ -1,0 +1,11 @@
+#clock {
+	margin: 1em auto;
+	padding: 0em;
+	font-family: 'Times New Roman', Times, serif;
+	color: #fff;
+	font-size: 34px;
+	width: 100%;
+	background: rgb(120, 179, 212);
+	line-height: 40px;
+	text-align: center;
+}

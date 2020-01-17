@@ -18,7 +18,7 @@
                                 <label for="nim">Nama Mahasiswa / NIM :</label>
                                 <select class="form-control" name="nim">
                                 <?php foreach($nim->result_array() as $n): ?>
-                                    <option value="<?= $n['nim'];?>"><?= $n['nama_mahasiswa'];?>-|-<?= $n['nim'];?></option>
+                                    <option value="<?= $n['nim'];?>" <?php if($pilih == $n['nim']){echo      'selected';} ?>><?= $n['nama_mahasiswa'];?>-|-<?= $n['nim'];?></option>
                                 <?php endforeach; ?>
                                 </select>
                             </div>
