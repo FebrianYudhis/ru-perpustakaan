@@ -7,7 +7,7 @@
                         <th>#</th>
                         <th>Id Pinjaman</th>
                         <th>Kode Buku</th>
-                        <th>NIM</th>
+                        <th>Nama Mahasiswa</th>
                         <th>Petugas</th>
                         <th>Tanggal Pinjam</th>
                         <th>Tanggal Kembali</th>
@@ -18,14 +18,14 @@
                     <?php 
                         $no = 1;
                         foreach ($pinjam->result_array() as $p):
-                            $this->db->where('id_petugas',$p['id_petugas']);
-                            $petugas = $this->db->get('petugas')->row_array();
+                            $petugas = $this->db->get('petugas',['id_petugas' => $p['id_petugas']])->row_array();
+                            $nama = $this->db->get('mahasiswa',['nim' => $p['nim']])->row_array();
                     ?>
                     <tr>
                         <td><?= $no;?></td>
                         <td><?= $p['id_pinjam'];?></td>
                         <td><?= $p['kode_buku'];?></td>
-                        <td><?= $p['nim'];?></td>
+                        <td><?= $nama['nama_mahasiswa'];?> (<?= $p['nim'];?>)</td>
                         <td><?= $petugas['nama_petugas'];?></td>
                         <td><?= $p['tgl_pinjam'];?></td>
                         <td><?= $p['tgl_kembali'];?></td>

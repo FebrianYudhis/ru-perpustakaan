@@ -6,7 +6,7 @@
                     <tr class="thead-dark">
                         <th>#</th>
                         <th>Kode Buku</th>
-                        <th>Id Kategori</th>
+                        <th>Kategori</th>
                         <th>Judul</th>
                         <th>Pengarang</th>
                         <th>Penerbit</th>
@@ -20,11 +20,13 @@
                     <?php 
                         $no = 1;
                         foreach ($buku->result_array() as $b):
+                            $this->db->where('id_kategori',$b['id_kategori']);
+                            $kategori = $this->db->get('kategori')->row_array();
                     ?>
                     <tr>
                         <td><?= $no;?></td>
                         <td><?= $b['kode_buku'];?></td>
-                        <td><?= $b['id_kategori'];?></td>
+                        <td><?= $kategori['jenis_kategori'];?></td>
                         <td><?= $b['judul'];?></td>
                         <td><?= $b['pengarang'];?></td>
                         <td><?= $b['penerbit'];?></td>

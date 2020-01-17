@@ -64,6 +64,26 @@ class Kelola extends CI_Controller {
 		$this->Mahasiswa->hapus($nim);
 	}
 
+	public function editmahasiswa($nim){
+		$data['judul'] = "Edit Data Mahasiswa";
+		$data['aktif'] = 'Mahasiswa';
+		$this->db->where('nim',$nim);
+		$data['mahasiswa'] = $this->db->get('mahasiswa')->row_array();
+		$this->form_validation->set_rules('nama','nama','required');
+		$this->form_validation->set_rules('tempat','tempat','required');
+		$this->form_validation->set_rules('tanggal','tanggal','required');
+		$this->form_validation->set_rules('alamat','alamat','required');
+		$this->form_validation->set_rules('kontak','kontak','required|integer');
+		$this->form_validation->set_rules('email','email','required|valid_email');
+		if($this->form_validation->run() == false){
+			$this->load->view('templates/kelola/header',$data);
+			$this->load->view('kelola/mahasiswa/edit',$data);
+			$this->load->view('templates/kelola/footer');
+		}else{
+			$this->Mahasiswa->edit($nim);
+		}
+	}
+
 	public function tambahbuku(){
 		$data['judul'] = 'Tambah Data Buku';
 		$data['aktif'] = 'Buku';
@@ -73,7 +93,7 @@ class Kelola extends CI_Controller {
 		$this->form_validation->set_rules('judul','judul','required');
 		$this->form_validation->set_rules('pengarang','pengarang','required');
 		$this->form_validation->set_rules('penerbit','penerbit','required');
-		$this->form_validation->set_rules('tahun','tahun','required');
+		$this->form_validation->set_rules('tahun','tahun','required|integer');
 		$this->form_validation->set_rules('pembelian','pembelian','required');
 		$this->form_validation->set_rules('harga','harga','required|integer');
 		if($this->form_validation->run() == false){
@@ -93,9 +113,32 @@ class Kelola extends CI_Controller {
 		$this->load->view('kelola/buku/lihat',$data);
 		$this->load->view('templates/kelola/footer');
 	}
-
+	
 	public function hapusbuku($kode){
 		$this->Buku->hapus($kode);
+	}
+	
+	public function editbuku($kode){
+		$data['judul'] = 'Edit Data Buku';
+		$data['aktif'] = 'Buku';
+		$this->db->where('kode_buku',$kode);
+		$data['buku'] = $this->db->get('buku')->row_array();
+		$data['kategori'] = $this->db->get('kategori');
+
+		$this->form_validation->set_rules('kategori','kategori','required');
+		$this->form_validation->set_rules('judul','judul','required');
+		$this->form_validation->set_rules('pengarang','pengarang','required');
+		$this->form_validation->set_rules('penerbit','penerbit','required');
+		$this->form_validation->set_rules('tahun','tahun','required|integer');
+		$this->form_validation->set_rules('pembelian','pembelian','required');
+		$this->form_validation->set_rules('harga','harga','required|integer');
+		if($this->form_validation->run() == false){
+			$this->load->view('templates/kelola/header',$data);
+			$this->load->view('kelola/buku/edit',$data);
+			$this->load->view('templates/kelola/footer');
+		}else{
+			$this->Buku->edit($kode);
+		}
 	}
 	
 	public function tambahkategori(){
@@ -122,6 +165,21 @@ class Kelola extends CI_Controller {
 
 	public function hapuskategori($id){
 		$this->Kategori->hapus($id);
+	}
+
+	public function editkategori($id){
+		$data['judul'] = 'Edit Data Kategori';
+		$data['aktif'] = 'Kategori';
+		$this->db->where('id_kategori',$id);
+		$data['kategori'] = $this->db->get('kategori')->row_array();
+		$this->form_validation->set_rules('kategori','kategori','required');
+		if($this->form_validation->run() == false){
+			$this->load->view('templates/kelola/header',$data);
+			$this->load->view('kelola/kategori/edit',$data);
+			$this->load->view('templates/kelola/footer');
+		}else{
+			$this->Kategori->edit($id);
+		}
 	}
 	
 	public function tambahpeminjaman(){
@@ -153,5 +211,25 @@ class Kelola extends CI_Controller {
 
 	public function hapuspeminjaman($id){
 		$this->Peminjaman->hapus($id);
+	}
+
+	public function editpeminjaman($id){
+		$data['judul'] = 'Edit Data Peminjaman';
+		$data['aktif'] = 'Pinjam';
+		$data['buku'] = $this->db->get('buku');
+		$data['nim'] = $this->db->get('mahasiswa');
+		$data['pinjam'] = $this->db->get_where('pinjaman',['id_pinjam' => $id])->row_array();
+
+		$this->form_validation->set_rules('buku','buku','required');
+		$this->form_validation->set_rules('nim','nim','required');
+		$this->form_validation->set_rules('pinjam','pinjam','required');
+		$this->form_validation->set_rules('kembali','kembali','required');
+		if($this->form_validation->run() == false){
+			$this->load->view('templates/kelola/header',$data);
+			$this->load->view('kelola/peminjaman/edit',$data);
+			$this->load->view('templates/kelola/footer');
+		}else{
+			$this->Peminjaman->edit($id);
+		}
 	}
 }
